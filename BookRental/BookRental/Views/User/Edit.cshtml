@@ -1,0 +1,88 @@
+﻿@model BookRental.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3>Edit User</h3>
+        <hr />
+
+        <div>
+            @Html.HiddenFor(m => m.Id)
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.FName, htmlAttributes:
+                     new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.FName,
+                        new { htmlAttributes = new {@class ="form-control"} })
+                    @Html.ValidationMessageFor(m => m.FName, "",
+                        new { @class="text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.LName, htmlAttributes:
+                     new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.LName,
+                        new { htmlAttributes = new {@class ="form-control"} })
+                    @Html.ValidationMessageFor(m => m.LName, "",
+                        new { @class="text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Phone, htmlAttributes:
+                     new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.Phone,
+                        new { htmlAttributes = new {@class ="form-control"} })
+                    @Html.ValidationMessageFor(m => m.Phone, "",
+                        new { @class="text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.BDay, htmlAttributes:
+                     new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextBoxFor(m => m.BDay, "{0:dd MMM yyyy}",
+                        new {@class ="form-control"} )
+                    @Html.ValidationMessageFor(m => m.BDay, "",
+                        new { @class="text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.MembershipTypeId, htmlAttributes:
+                     new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"),
+                         new {@class ="form-control"} )
+                    @Html.ValidationMessageFor(m => m.MembershipTypeId, "",
+                        new { @class="text-danger"})
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.EMail, htmlAttributes:
+                     new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(m => m.EMail,
+                        new { htmlAttributes = new {@class ="form-control"} })
+                    @Html.ValidationMessageFor(m => m.EMail, "",
+                        new { @class="text-danger"})
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div>
+        @Html.Partial("_BackToListButtonPartial")
+        @Html.Partial("_SaveButtonPartial")
+        @*     <input type="submit" value="Save" class="btn btn-sm btn-success" />*@
+    </div>
+}
+
+

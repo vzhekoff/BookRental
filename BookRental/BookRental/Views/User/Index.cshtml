@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BookRental.ViewModels.UserViewModel>
+@using BookRental.Models
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Manage Users</h3>
+
+
+<br />
+
+
+<table class="table table-condensed table-hover">
+    <tr class="table-header">
+        <th>
+            @Html.DisplayNameFor(m => m.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.EMail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.BDay)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.Disable)
+        </th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(m => item.FName)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.LName)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.EMail)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.BDay)
+        </td>
+        <td>
+            @Html.DisplayFor(m => item.Phone)
+        </td>
+        <td>
+            @Html.CheckBoxFor(m => item.Disable, new { @class="disabled" })
+        </td>
+        <td>
+            @Html.Partial("_TableButtonPartial",
+           new IndividualButtonPartial {
+               UserId = item.Id
+           })
+        </td>
+    </tr>
+    }
+</table>

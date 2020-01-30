@@ -1,0 +1,26 @@
+﻿@model BookRental.Models.Genre
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h3>Create New Genre</h3>
+        <hr />
+        @Html.LabelFor(m=>m.Name, htmlAttributes: new { @class = "control-label col-md-2"})
+        <div class="col-md-10">
+            @Html.EditorFor(m=>m.Name, new { HtmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m=>m.Name, "", new { @class="text-danger"})
+        </div>
+    </div>
+
+    <div>
+        @*<input type="submit" class="btn btn-sm btn-success" value="Create" />*@
+        @Html.Partial("_BackToListButtonPartial")
+        @Html.Partial("_CreateButtonPartial")
+    </div>
+}

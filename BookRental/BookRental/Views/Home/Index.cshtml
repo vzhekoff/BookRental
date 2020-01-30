@@ -1,0 +1,25 @@
+﻿@model IEnumerable<BookRental.ViewModels.ThumbnailBoxViewModel>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<br />
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Get))
+{
+    <div class="row">
+        @Html.Partial("_SearchButtonPartial")
+    </div>
+
+    <br />
+}
+
+<div class="row">
+    @foreach (var area in Model)
+    {
+        @Html.Partial("_ThumbnailAreaPartial", area)
+
+    }
+</div>
+

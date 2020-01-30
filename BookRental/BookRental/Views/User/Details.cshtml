@@ -1,0 +1,69 @@
+﻿@model BookRental.ViewModels.UserViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h3>User Details</h3>
+    <hr />
+
+    <fieldset disabled>
+        <div class="row" style="padding-bottom:5px; padding-top:5px;">
+            <div class="col-md-2">
+                @Html.LabelFor(m=>m.FName, htmlAttributes:
+                    new { @class="control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.FName, htmlAttributes:
+                    new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:5px; padding-top:5px;">
+            <div class="col-md-2">
+                @Html.LabelFor(m=>m.LName, htmlAttributes:
+                    new { @class="control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.LName, htmlAttributes:
+                    new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:5px; padding-top:5px;">
+            <div class="col-md-2">
+                @Html.LabelFor(m=>m.Phone, htmlAttributes:
+                    new { @class="control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.Phone, htmlAttributes:
+                    new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:5px; padding-top:5px;">
+            <div class="col-md-2">
+                @Html.LabelFor(m=>m.EMail, htmlAttributes:
+                    new { @class="control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.EMail, htmlAttributes:
+                    new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row" style="padding-bottom:5px; padding-top:5px;">
+            <div class="col-md-2">
+                @Html.LabelFor(m=>m.BDay, htmlAttributes:
+                    new { @class="control-label" })
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.BDay, "{0:dd MMM yyy}", new { @class = "form-control" })
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+<br />
+
+<p>
+    @Html.Partial("_BackToListButtonPartial")
+    @Html.Partial("_EditButtonPartialS", Model.Id)
+</p>
